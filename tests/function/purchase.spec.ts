@@ -9,7 +9,7 @@ test('Mua hàng thành công từ trang danh sách sản phẩm', async ({ page 
   const cartPage = new CartPage(page);
 
   // 1. Đăng nhập
-  await loginPage.navigate('/login');
+  await loginPage.navigate('/');
   await loginPage.login('standard_user', 'secret_sauce');
 
   // 2. Thêm sản phẩm vào giỏ
