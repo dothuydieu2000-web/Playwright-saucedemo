@@ -1,11 +1,6 @@
-import { BasePage } from './base.page';
-
-export class CartPage extends BasePage {
-  readonly checkoutButton = this.page.getByRole('button', { name: 'Checkout' });
-
-  async proceedToCheckout() {
-    await this.checkoutButton.click();
-  }
+  import { BasePage } from './base.page';
+  
+  export class CheckoutInformationPage extends BasePage {
   private readonly firstname = this.page.getByRole('textbox', { name: 'First Name' });
   private readonly lastname = this.page.getByRole('textbox', { name: 'Last Name' });
   private readonly zipcode = this.page.getByRole('textbox', { name: 'Zip/Postal Code' });
@@ -15,12 +10,5 @@ export class CartPage extends BasePage {
     await this.lastname.fill(lastname);
     await this.zipcode.fill(zipcode);
     await this.continuebutton.click();
-  }
-
-  async proceedToRemove(productName: string) {
-    await this.page
-      .locator('.cart_item', { hasText: productName })
-      .getByRole('button', { name: 'Remove' })
-      .click();
   }
 }
